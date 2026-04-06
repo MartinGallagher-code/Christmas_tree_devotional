@@ -146,7 +146,7 @@
 /* === SKIP LINK === */
 .skip-link {
   position: absolute;
-  top: -100%;
+  top: -9999px;
   left: var(--space-4);
   padding: var(--space-2) var(--space-6);
   background: var(--color-pine);
