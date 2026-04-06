@@ -1206,10 +1206,10 @@ a { transition: color var(--transition-interactive); }
 }
 
 /* === CONTACT PAGE === */
-.contact-wrap {
-  width: min(860px, 100% - var(--space-12));
-  margin-inline: auto;
-  padding-block: clamp(var(--space-12), 6vw, var(--space-24));
+/* === CONTACT PAGE === */
+.article-main--wide {
+  grid-column: 1 / -1;
+  max-width: 800px;
 }
 
 /* === CONTACT FORM === */
