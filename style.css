@@ -5,8 +5,6 @@
 / /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
 \____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
                     /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
 */
 
 /* === DESIGN TOKENS === */
@@ -999,5 +997,207 @@ a { transition: color var(--transition-interactive); }
 
   .article-wrap {
     padding: var(--space-10) var(--space-5);
+  }
+}
+
+/* === DISCUSSION LIST === */
+.discussion-list {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.discussion-list li {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+/* === WORSHIP CTA SECTION (homepage) === */
+.worship-cta-section {
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-6);
+  text-align: center;
+  background: var(--color-surface);
+}
+
+.worship-cta-inner {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+}
+
+.worship-cta-inner .section-title {
+  margin-bottom: var(--space-5);
+}
+
+.worship-cta-inner p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+
+/* === PAGE BANNER (worship page hero) === */
+.page-banner {
+  background: var(--color-surface-offset);
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-6);
+}
+
+.page-banner-inner {
+  max-width: var(--content-default);
+  margin: 0 auto;
+}
+
+.page-banner-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+}
+
+.page-banner-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 58ch;
+  line-height: 1.8;
+}
+
+/* === RESOURCES LIST (worship page) === */
+.resources-list {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.resources-list li {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+.resources-list a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-interactive);
+}
+
+.resources-list a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* === WEEK PROGRESS INDICATOR === */
+.week-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.week-progress-step {
+  width: 28px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: oklch(1 0 0 / 0.25);
+}
+
+.week-progress-step.done {
+  background: oklch(1 0 0 / 0.5);
+}
+
+.week-progress-step.active {
+  background: var(--color-gold);
+  width: 40px;
+}
+
+.week-progress-label {
+  font-size: var(--text-xs);
+  color: oklch(0.82 0.02 80);
+  letter-spacing: 0.08em;
+  margin-left: var(--space-1);
+}
+
+/* === PRINT STYLES === */
+@media print {
+  .site-header,
+  .site-footer,
+  .week-nav,
+  .hero-overlay,
+  .page-hero-overlay,
+  .week-progress,
+  [data-theme-toggle],
+  .nav-toggle {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .page-hero {
+    min-height: auto;
+    background: none;
+    display: block;
+  }
+
+  .page-hero-image {
+    display: none;
+  }
+
+  .page-hero-content {
+    position: static;
+    padding: 1rem 0 1.5rem;
+    color: #000;
+  }
+
+  .page-hero h1,
+  .page-hero .week-label {
+    color: #000;
+  }
+
+  .page-hero .theme-verse,
+  .page-hero .verse-ref {
+    color: #333;
+  }
+
+  .article-wrap {
+    padding: 0;
+    display: block;
+  }
+
+  .article-main {
+    grid-column: 1;
+  }
+
+  .pullquote blockquote {
+    color: #000;
+  }
+
+  .article-main h2,
+  .article-main p,
+  .discussion-list li,
+  .resources-list li {
+    color: #000;
+  }
+
+  .scripture-section {
+    border: 1px solid #ccc;
+  }
+
+  .prep-box {
+    border-left: 3px solid #1a4a2e;
+    background: #f5f5f5;
+  }
+
+  a[href]::after {
+    content: none;
   }
 }
