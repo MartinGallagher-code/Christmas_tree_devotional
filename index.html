@@ -28,6 +28,7 @@
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="site-header" id="site-header">
@@ -72,15 +73,18 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- HERO -->
     <section class="hero" aria-label="Site hero">
-      <img
-        src="images/hero-tree.png"
-        alt="A bare Christmas tree in a candlelit room"
-        class="hero-image"
-        loading="eager"
-      >
+      <picture>
+        <source srcset="images/hero-tree.webp" type="image/webp">
+        <img
+          src="images/hero-tree.png"
+          alt="A bare Christmas tree in a candlelit room"
+          class="hero-image"
+          loading="eager"
+        >
+      </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="hero-eyebrow">A Family Advent Tradition</p>
@@ -112,11 +116,14 @@
           </p>
         </div>
         <div class="intro-image-wrap">
-          <img
-            src="images/worship-family.png"
-            alt="A mother reading the Bible by candlelight with children gathered around a wooden table"
-            loading="lazy"
-          >
+          <picture>
+            <source srcset="images/worship-family.webp" type="image/webp">
+            <img
+              src="images/worship-family.png"
+              alt="A mother reading the Bible by candlelight with children gathered around a wooden table"
+              loading="lazy"
+            >
+          </picture>
         </div>
       </div>
     </section>
@@ -135,7 +142,10 @@
         <div class="weeks-grid">
           <!-- Week 1 -->
           <a href="week1.html" class="week-card" aria-label="Week One: The Tree — read more">
-            <img src="images/hero-tree.png" alt="A bare Christmas tree by candlelight" class="week-card-image" loading="lazy">
+            <picture>
+              <source srcset="images/hero-tree.webp" type="image/webp">
+              <img src="images/hero-tree.png" alt="A bare Christmas tree by candlelight" class="week-card-image" loading="lazy">
+            </picture>
             <div class="week-card-body">
               <p class="week-number">Week One</p>
               <h3>The Tree</h3>
@@ -148,7 +158,10 @@
 
           <!-- Week 2 -->
           <a href="week2.html" class="week-card" aria-label="Week Two: The Light — read more">
-            <img src="images/week2-lights.png" alt="Christmas tree ablaze with warm white lights against darkness" class="week-card-image" loading="lazy">
+            <picture>
+              <source srcset="images/week2-lights.webp" type="image/webp">
+              <img src="images/week2-lights.png" alt="Christmas tree ablaze with warm white lights against darkness" class="week-card-image" loading="lazy">
+            </picture>
             <div class="week-card-body">
               <p class="week-number">Week Two</p>
               <h3>The Light</h3>
@@ -161,7 +174,10 @@
 
           <!-- Week 3 -->
           <a href="week3.html" class="week-card" aria-label="Week Three: Prophecy and Heritage — read more">
-            <img src="images/week3-ornaments.png" alt="Close-up of heirloom Christmas ornaments on pine branches by candlelight" class="week-card-image" loading="lazy">
+            <picture>
+              <source srcset="images/week3-ornaments.webp" type="image/webp">
+              <img src="images/week3-ornaments.png" alt="Close-up of heirloom Christmas ornaments on pine branches by candlelight" class="week-card-image" loading="lazy">
+            </picture>
             <div class="week-card-body">
               <p class="week-number">Week Three</p>
               <h3>Prophecy &amp; Heritage</h3>
@@ -174,7 +190,10 @@
 
           <!-- Week 4 -->
           <a href="week4.html" class="week-card" aria-label="Week Four: The Gift and the Prize — read more">
-            <img src="images/week4-gift.png" alt="A fully decorated Christmas tree with a wooden cross at the top and gifts beneath" class="week-card-image" loading="lazy">
+            <picture>
+              <source srcset="images/week4-gift.webp" type="image/webp">
+              <img src="images/week4-gift.png" alt="A fully decorated Christmas tree with a wooden cross at the top and gifts beneath" class="week-card-image" loading="lazy">
+            </picture>
             <div class="week-card-body">
               <p class="week-number">Week Four</p>
               <h3>The Gift &amp; the Prize</h3>
@@ -218,7 +237,7 @@
             <span class="site-logo-title">Christmas Tree Devotional</span>
           </div>
         </a>
-        <p>A four-week Advent tradition for Christian families. Originally created by <a href="mailto:MartinGallagher@yahoo.com">Martin J. Gallagher</a>. Scripture quotations from the ESV Bible.</p>
+        <p>A four-week Advent tradition for Christian families. Originally created by Martin J. Gallagher. Scripture quotations from the ESV Bible.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation: Weeks">
         <h4>The Weeks</h4>
@@ -239,7 +258,7 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p>Content © <a href="mailto:MartinGallagher@yahoo.com">Martin J. Gallagher</a>. Design updated 2025.</p>
+      <p>Content © Martin J. Gallagher. Design updated 2025.</p>
     </div>
   </footer>
 

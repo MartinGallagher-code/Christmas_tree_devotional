@@ -27,6 +27,7 @@
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="site-header">
     <div class="header-inner">
@@ -60,9 +61,12 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero" aria-label="Week Four hero">
-      <img src="images/week4-gift.png" alt="A fully decorated Christmas tree with a wooden cross at the top and gifts beneath in a warm family living room" class="page-hero-image" loading="eager">
+      <picture>
+        <source srcset="images/week4-gift.webp" type="image/webp">
+        <img src="images/week4-gift.png" alt="A fully decorated Christmas tree with a wooden cross at the top and gifts beneath in a warm family living room" class="page-hero-image" loading="eager">
+      </picture>
       <div class="page-hero-overlay" aria-hidden="true"></div>
       <div class="page-hero-content">
         <p class="week-label">Week Four — Christmas Week</p>
@@ -104,7 +108,7 @@
           <blockquote>
             "Are your eyes firmly set on the only prize worth winning? Are your hopes and happiness resting on Jesus Christ?"
           </blockquote>
-          <cite><a href="mailto:MartinGallagher@yahoo.com">Martin J. Gallagher</a> — Advent Christmas Tree Devotional</cite>
+          <cite>Martin J. Gallagher — Advent Christmas Tree Devotional</cite>
         </div>
 
         <h2>Christmas Is an Invitation</h2>
@@ -196,9 +200,9 @@
           </svg>
           <div class="site-logo-text"><span class="site-logo-title">Christmas Tree Devotional</span></div>
         </a>
-        <p>A four-week Advent tradition for Christian families. Originally created by <a href="mailto:MartinGallagher@yahoo.com">Martin J. Gallagher</a>. Scripture quotations from the ESV Bible.</p>
+        <p>A four-week Advent tradition for Christian families. Originally created by Martin J. Gallagher. Scripture quotations from the ESV Bible.</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer: Weeks">
+      <nav class="footer-nav" aria-label="Footer navigation: Weeks">
         <h4>The Weeks</h4>
         <ul role="list">
           <li><a href="week1.html">Week One — The Tree</a></li>
@@ -207,7 +211,7 @@
           <li><a href="week4.html">Week Four — The Gift</a></li>
         </ul>
       </nav>
-      <nav class="footer-nav" aria-label="Footer: Resources">
+      <nav class="footer-nav" aria-label="Footer navigation: Resources">
         <h4>Resources</h4>
         <ul role="list">
           <li><a href="worship.html">Notes on Family Worship</a></li>
@@ -217,7 +221,7 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p>Content © <a href="mailto:MartinGallagher@yahoo.com">Martin J. Gallagher</a>. Design updated 2025.</p>
+      <p>Content © Martin J. Gallagher. Design updated 2025.</p>
     </div>
   </footer>
 
