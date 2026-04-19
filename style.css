@@ -35,9 +35,9 @@
   --space-32: 8rem;
 
   /* Content widths */
-  --content-narrow: 800px;
-  --content-default: 1400px;
-  --content-wide: 1600px;
+  --content-narrow: 90%;
+  --content-default: 92%;
+  --content-wide: 94%;
 
   /* Typography */
   --font-display: 'Instrument Serif', 'Georgia', serif;
@@ -169,8 +169,8 @@ body {
 img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
 ul[role="list"], ol[role="list"] { list-style: none; }
 input, button, textarea, select { font: inherit; color: inherit; }
-h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.2; font-family: var(--font-display); }
-p, li { text-wrap: pretty; max-width: 68ch; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-family: var(--font-display); }
+p, li { }
 
 ::selection {
   background: color-mix(in oklab, var(--color-primary) 25%, transparent);
@@ -354,7 +354,7 @@ a { transition: color var(--transition-interactive); }
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: var(--content-default);
+  max-width: var(--content-wide);
   margin: 0 auto;
   padding: var(--space-20) var(--space-8);
   width: 100%;
@@ -380,7 +380,6 @@ a { transition: color var(--transition-interactive); }
 .hero-desc {
   font-size: var(--text-base);
   color: oklch(0.88 0.02 80);
-  max-width: 52ch;
   line-height: 1.7;
   margin-bottom: var(--space-8);
 }
@@ -439,7 +438,6 @@ a { transition: color var(--transition-interactive); }
 .section-body {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  max-width: 60ch;
   margin: 0 auto;
   line-height: 1.7;
 }
@@ -515,7 +513,7 @@ a { transition: color var(--transition-interactive); }
 }
 
 .intro-inner {
-  max-width: var(--content-default);
+  max-width: var(--content-wide);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -589,7 +587,7 @@ a { transition: color var(--transition-interactive); }
 .page-hero-content {
   position: relative;
   z-index: 2;
-  max-width: var(--content-default);
+  max-width: var(--content-wide);
   margin: 0 auto;
   padding: var(--space-16) var(--space-8);
   width: 100%;
@@ -615,7 +613,6 @@ a { transition: color var(--transition-interactive); }
   font-style: italic;
   font-size: var(--text-base);
   color: oklch(0.82 0.02 80);
-  max-width: 54ch;
   line-height: 1.7;
   border-left: 3px solid var(--color-gold);
   padding-left: var(--space-5);
@@ -632,12 +629,14 @@ a { transition: color var(--transition-interactive); }
 
 /* === ARTICLE BODY === */
 .article-wrap {
-  max-width: var(--content-wide);
-  margin: 0 auto;
-  padding: clamp(var(--space-12), 6vw, var(--space-24)) var(--space-8);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(var(--space-12), 6vw, var(--space-24)) var(--space-6);
 }
 
 .article-main {
+  width: 100%;
   max-width: none;
 }
 
@@ -1072,7 +1071,6 @@ a { transition: color var(--transition-interactive); }
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.7;
-  max-width: 60ch;
 }
 
 /* === WORSHIP CTA SECTION (homepage) === */
@@ -1108,7 +1106,7 @@ a { transition: color var(--transition-interactive); }
 }
 
 .page-banner-inner {
-  max-width: var(--content-default);
+  max-width: var(--content-wide);
   margin: 0 auto;
 }
 
@@ -1124,7 +1122,6 @@ a { transition: color var(--transition-interactive); }
 .page-banner-desc {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  max-width: 58ch;
   line-height: 1.8;
 }
 
@@ -1141,7 +1138,6 @@ a { transition: color var(--transition-interactive); }
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.7;
-  max-width: 60ch;
 }
 
 .resources-list a {
@@ -1268,7 +1264,7 @@ a { transition: color var(--transition-interactive); }
 /* === CONTACT PAGE === */
 .article-main--wide {
   grid-column: 1 / -1;
-  max-width: 800px;
+  max-width: none;
 }
 
 /* === CONTACT FORM === */
