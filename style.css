@@ -710,6 +710,20 @@ a { transition: color var(--transition-interactive); }
   font-weight: 600;
 }
 
+.scripture-group {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.scripture-group:first-of-type {
+  margin-top: 0;
+}
+
 .scripture-list {
   list-style: none;
   display: flex;
@@ -764,15 +778,6 @@ a { transition: color var(--transition-interactive); }
   color: var(--color-accent-hover);
 }
 
-.scripture-toggle svg {
-  width: 14px;
-  height: 14px;
-  transition: transform var(--transition-interactive);
-}
-
-.scripture-toggle[aria-expanded="true"] svg {
-  transform: rotate(180deg);
-}
 
 .scripture-text {
   display: none;
