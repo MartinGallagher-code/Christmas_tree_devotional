@@ -40,4 +40,15 @@
       navToggle.setAttribute('aria-expanded', open);
     });
   }
+
+  // Scripture expand/collapse
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.scripture-toggle');
+    if (!btn) return;
+    const text = btn.closest('li').querySelector('.scripture-text');
+    if (!text) return;
+    const open = text.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.querySelector('.toggle-label').textContent = open ? 'Hide' : 'Read';
+  });
 })();
