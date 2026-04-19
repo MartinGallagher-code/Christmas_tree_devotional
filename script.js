@@ -41,13 +41,27 @@
     });
   }
 
-  // Scripture expand/collapse
+  // Scripture expand/collapse — loads text from passages.js on first click
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.scripture-toggle');
     if (!btn) return;
-    const text = btn.closest('li').querySelector('.scripture-text');
-    if (!text) return;
-    const open = text.classList.toggle('open');
+    const li = btn.closest('li');
+    let textDiv = li.querySelector('.scripture-text');
+
+    // First click: create the text div and populate from data
+    if (!textDiv && typeof ESV_PASSAGES !== 'undefined') {
+      const ref = btn.getAttribute('data-ref');
+      const html = ref && ESV_PASSAGES[ref];
+      if (html) {
+        textDiv = document.createElement('div');
+        textDiv.className = 'scripture-text';
+        textDiv.innerHTML = html;
+        li.appendChild(textDiv);
+      }
+    }
+
+    if (!textDiv) return;
+    const open = textDiv.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
     btn.querySelector('.toggle-label').textContent = open ? 'Hide' : 'Read';
   });
