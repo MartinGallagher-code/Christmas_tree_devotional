@@ -35,9 +35,9 @@
   --space-32: 8rem;
 
   /* Content widths */
-  --content-narrow: 640px;
-  --content-default: 960px;
-  --content-wide: 1200px;
+  --content-narrow: 800px;
+  --content-default: 1400px;
+  --content-wide: 1600px;
 
   /* Typography */
   --font-display: 'Instrument Serif', 'Georgia', serif;
@@ -638,7 +638,7 @@ a { transition: color var(--transition-interactive); }
 }
 
 .article-main {
-  max-width: 52rem;
+  max-width: none;
 }
 
 .article-main h2 {
@@ -1082,7 +1082,7 @@ a { transition: color var(--transition-interactive); }
 }
 
 .worship-cta-inner {
-  max-width: var(--content-narrow);
+  max-width: var(--content-default);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
