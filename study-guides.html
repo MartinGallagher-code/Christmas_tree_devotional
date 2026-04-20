@@ -12,10 +12,10 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Advent Christmas Tree Devotional</title>
-  <meta name="description" content="Get in touch with questions, feedback, or to share how your family has used this Advent devotional.">
-  <meta property="og:title" content="Contact — Advent Christmas Tree Devotional">
-  <meta property="og:description" content="Get in touch with questions or feedback about the Advent Christmas Tree Devotional.">
+  <title>Study Guides — Advent Christmas Tree Devotional</title>
+  <meta name="description" content="Printable study guides for each week of the Advent Christmas Tree Devotional. Four sessions per week — one for Sunday, three for the days of the week — with reflection questions for the family.">
+  <meta property="og:title" content="Study Guides — Advent Christmas Tree Devotional">
+  <meta property="og:description" content="Printable four-session study guides for each week of Advent. One Sunday gathering and three weekday sessions, with reflection questions.">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,6 @@
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
-
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">
@@ -43,12 +42,12 @@
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="worship.html">Family Worship</a>
-        <a href="study-guides.html">Study Guides</a>
+        <a href="study-guides.html" class="active">Study Guides</a>
         <a href="week1.html">Week 1</a>
         <a href="week2.html">Week 2</a>
         <a href="week3.html">Week 3</a>
         <a href="week4.html">Week 4</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
@@ -64,10 +63,10 @@
   <main id="main-content">
     <section class="page-banner">
       <div class="page-banner-inner">
-        <p class="section-eyebrow">Get in Touch</p>
-        <h1 class="page-banner-title">Contact</h1>
+        <p class="section-eyebrow">Family Resources</p>
+        <h1 class="page-banner-title">Study Guides</h1>
         <p class="page-banner-desc">
-          Questions, feedback, or a story about how your family used this devotional — all are welcome. Martin reads every message.
+          A printable study guide for each week of Advent. Every guide divides the week's readings into four sessions — one for the Sunday gathering when the tree changes, and three short weekday sittings that can be combined if a day is missed. Reflection questions sit at the points where the readings open something worth lingering on.
         </p>
       </div>
     </section>
@@ -75,42 +74,44 @@
     <div class="article-wrap">
       <article class="article-main article-main--wide">
 
-        <div id="form-success" class="form-success" role="alert">
-          <strong>Message sent.</strong> Thank you for getting in touch — Martin will reply as soon as he can.
+        <div class="weeks-grid">
+          <a href="study-week1.html" class="week-card" aria-label="Week One Study Guide: The Tree">
+            <div class="week-card-body">
+              <p class="week-number">Week One Study Guide</p>
+              <h3>The Tree</h3>
+              <p>The two trees of Eden, the tree as a picture of the faithful life, the tree of the curse becoming the tree of the cross, and the Tree of Life restored.</p>
+            </div>
+          </a>
+
+          <a href="study-week2.html" class="week-card" aria-label="Week Two Study Guide: The Light">
+            <div class="week-card-body">
+              <p class="week-number">Week Two Study Guide</p>
+              <h3>The Light</h3>
+              <p>Light before all else, the honest darkness of Job and the psalms, the prophets' promise of dawn, and the city where God Himself is the light forever.</p>
+            </div>
+          </a>
+
+          <a href="study-week3.html" class="week-card" aria-label="Week Three Study Guide: Prophecy and Heritage">
+            <div class="week-card-body">
+              <p class="week-number">Week Three Study Guide</p>
+              <h3>Prophecy &amp; Heritage</h3>
+              <p>The command to remember, the prophetic promise narrowing across centuries, the day Jesus stood up and said "today this is fulfilled," and the heritage that endures.</p>
+            </div>
+          </a>
+
+          <a href="study-week4.html" class="week-card" aria-label="Week Four Study Guide: The Gift and the Prize">
+            <div class="week-card-body">
+              <p class="week-number">Week Four Study Guide</p>
+              <h3>The Gift &amp; the Prize</h3>
+              <p>The gift promised in Eden, anticipated through psalms and prophets, arriving in a manger, revealed as God Himself — and the question every person must answer. The final block is written for Christmas morning.</p>
+            </div>
+          </a>
         </div>
 
-        <form
-          class="contact-form"
-          action="https://formspree.io/f/mqegwqkl"
-          method="POST"
-          id="contact-form"
-        >
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required placeholder="your@email.com">
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required placeholder="Your message…"></textarea>
-          </div>
-
-          <button type="submit" class="form-submit">
-            Send Message
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </form>
-
-        <div class="week-nav">
-          <a href="index.html">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back to Home
-          </a>
+        <div class="prep-box" style="margin-top: var(--space-10);">
+          <h3>How These Are Meant to Be Used</h3>
+          <p>Each guide is a four-session walk through the week's Scripture readings. The readings are grouped thematically inside each session, with reflection questions placed at the natural break-points — not after every verse. Read the passage aloud, then sit with one question at a time. The aim is conversation, not completion.</p>
+          <p>Each guide includes a <strong>Print this guide</strong> button at the top, and the print stylesheet starts each session on its own page so a printed copy is easy to share around a table.</p>
         </div>
 
       </article>
@@ -143,9 +144,9 @@
         <h4>Resources</h4>
         <ul role="list">
           <li><a href="worship.html">Notes on Family Worship</a></li>
+          <li><a href="study-guides.html">Study Guides</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="https://www.esv.org" target="_blank" rel="noopener">ESV Bible Online</a></li>
-          <li><a href="https://www.desiringgod.org" target="_blank" rel="noopener">Desiring God</a></li>
         </ul>
       </nav>
     </div>
@@ -155,24 +156,5 @@
   </footer>
 
   <script src="script.js" defer></script>
-  <script>
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('form-success');
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        form.querySelector('.form-submit').textContent = 'Something went wrong — please try again.';
-      }
-    });
-  </script>
 </body>
 </html>

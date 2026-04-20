@@ -41,6 +41,39 @@
     });
   }
 
+  // Advent dates — computed from the current year so "this year" references stay correct.
+  // First Sunday of Advent is the fourth Sunday before 25 December.
+  function computeAdvent(year) {
+    const christmas = new Date(year, 11, 25);
+    const dow = christmas.getDay();
+    const daysBack = dow === 0 ? 7 : dow;
+    const advent4 = new Date(year, 11, 25 - daysBack);
+    const mk = (offset) => {
+      const d = new Date(advent4);
+      d.setDate(advent4.getDate() - offset);
+      return d;
+    };
+    return [mk(21), mk(14), mk(7), advent4, christmas];
+  }
+  const dates = computeAdvent(new Date().getFullYear());
+  const fmt = (d) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  const ordinals = ['first', 'second', 'third', 'fourth'];
+  document.querySelectorAll('[data-advent-week]').forEach((el) => {
+    const w = parseInt(el.getAttribute('data-advent-week'), 10);
+    if (w >= 1 && w <= 4) {
+      el.textContent = 'This year, the ' + ordinals[w - 1] + ' Sunday of Advent falls on ' + fmt(dates[w - 1]) + '.';
+      el.hidden = false;
+    }
+  });
+  document.querySelectorAll('[data-advent-season]').forEach((el) => {
+    el.textContent = 'This year, Advent runs from Sunday ' + fmt(dates[0]) + ' to Christmas Day, ' + fmt(dates[4]) + '.';
+    el.hidden = false;
+  });
+  document.querySelectorAll('[data-advent-start]').forEach((el) => {
+    el.textContent = 'Advent begins Sunday ' + fmt(dates[0]) + ' — prepare your tree and family.';
+    el.hidden = false;
+  });
+
   // Scripture expand/collapse — loads text from passages.js on first click
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.scripture-toggle');
