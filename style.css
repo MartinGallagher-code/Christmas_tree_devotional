@@ -1328,6 +1328,45 @@ a.ref:hover {
 }
 
 /* === STUDY GUIDE === */
+.embedded-study-guide {
+  margin-top: var(--space-12);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--color-divider);
+}
+
+.embedded-study-guide-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.embedded-study-guide-header h2 {
+  margin: 0;
+}
+
+.embedded-study-guide-lede {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  max-width: 60ch;
+}
+
+.embedded-study-guide-link {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.embedded-study-guide-link:hover { color: var(--color-accent-hover); }
+
+
 .page-hero--study {
   min-height: auto;
   background: linear-gradient(
