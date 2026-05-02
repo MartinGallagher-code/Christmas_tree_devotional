@@ -1,0 +1,710 @@
+/* =========================================================================
+   The Tree Tells a Story — Print Book Stylesheet
+   Trim: 5.5" × 8.5" (Lulu Digest paperback)
+   Designed for: Chromium headless --print-to-pdf, WeasyPrint, or Prince.
+   ========================================================================= */
+
+/* ---------- Page setup ---------- */
+
+@page {
+  size: 5.5in 8.5in;
+  margin: 0.65in 0.55in 0.7in 0.75in; /* top right bottom left (left page = inside-right) */
+}
+
+/* Mirrored margins for double-sided printing.
+   On a recto (right) page the gutter is on the LEFT.
+   On a verso (left) page the gutter is on the RIGHT.                          */
+@page :right {
+  margin-left: 0.75in;
+  margin-right: 0.55in;
+  @top-right {
+    content: string(chapter-title);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #6a5a44;
+    margin-top: 0.25in;
+    letter-spacing: 0.04em;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 9pt;
+    color: #2b2b2b;
+    margin-bottom: 0.3in;
+  }
+}
+@page :left {
+  margin-left: 0.55in;
+  margin-right: 0.75in;
+  @top-left {
+    content: "The Tree Tells a Story";
+    font-family: 'Lora', Georgia, serif;
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #6a5a44;
+    margin-top: 0.25in;
+    letter-spacing: 0.04em;
+  }
+  @bottom-left {
+    content: counter(page);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 9pt;
+    color: #2b2b2b;
+    margin-bottom: 0.3in;
+  }
+}
+
+/* Front matter uses Roman numerals and no running heads. */
+@page front-matter {
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-left { content: counter(page, lower-roman); }
+  @bottom-right { content: counter(page, lower-roman); }
+}
+
+/* Part-title pages: no headers or page number visible (count still increments). */
+@page part-title {
+  margin: 1.2in 0.6in 1.2in 0.6in;
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-left { content: ""; }
+  @bottom-right { content: ""; }
+}
+
+/* Blank verso pages — completely empty. */
+@page blank {
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-left { content: ""; }
+  @bottom-right { content: ""; }
+}
+
+/* ---------- Base typography ---------- */
+
+html, body {
+  background: #fffaf3;
+  color: #2b2b2b;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  margin: 0;
+  text-indent: 1.2em;
+  text-align: justify;
+  orphans: 3;
+  widows: 3;
+}
+p + p { margin-top: 0; }
+p.no-indent, p:first-of-type, h1 + p, h2 + p, h3 + p, h4 + p,
+.prose-lead, .pullquote + p, .reflection-box + p, .scripture-list + p,
+.session-aim + .session-block p:first-of-type {
+  text-indent: 0;
+}
+
+em, i { font-style: italic; }
+strong, b { font-weight: 600; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Headings ---------- */
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Instrument Serif', 'Lora', Georgia, serif;
+  font-weight: 400;
+  color: #1f1a14;
+  line-height: 1.15;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h1 { font-size: 26pt; margin: 0 0 0.4em; }
+h2 {
+  font-size: 17pt;
+  margin: 1.6em 0 0.5em;
+  text-align: left;
+}
+h3 { font-size: 13pt; margin: 1.2em 0 0.4em; }
+h4 { font-size: 11pt; margin: 1em 0 0.3em; font-weight: 600; }
+h5 {
+  font-size: 9pt;
+  font-family: 'Lora', Georgia, serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  margin: 0 0 0.5em;
+}
+
+/* ---------- Sections / page breaks ---------- */
+
+/* Anything with class .recto starts on a right-hand page. */
+.recto {
+  page-break-before: right;
+  break-before: right;
+}
+.new-page {
+  page-break-before: always;
+  break-before: page;
+}
+.blank-page {
+  page: blank;
+  page-break-before: always;
+  page-break-after: always;
+  break-before: page;
+  break-after: page;
+}
+
+/* ---------- Front matter pages ---------- */
+
+.front-matter { page: front-matter; }
+
+/* Half-title page */
+.half-title {
+  page-break-before: right;
+  break-before: right;
+  page: part-title;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.half-title h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 24pt;
+  font-style: italic;
+  color: #4a3a26;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+}
+
+/* Title page */
+.title-page {
+  page-break-before: right;
+  break-before: right;
+  page: part-title;
+  text-align: center;
+  padding-top: 1in;
+}
+.title-page .ornament {
+  width: 0.6in;
+  height: 0.6in;
+  margin: 0 auto 0.5in;
+  display: block;
+  color: #c9a04a;
+}
+.title-page h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 32pt;
+  font-style: italic;
+  color: #1f1a14;
+  margin: 0 0 0.15in;
+  line-height: 1.05;
+}
+.title-page .subtitle {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 12pt;
+  font-style: italic;
+  color: #4a3a26;
+  margin: 0 0 1.4in;
+  letter-spacing: 0.02em;
+}
+.title-page .author {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 11pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2b2b2b;
+  margin-bottom: 0.8in;
+}
+.title-page .imprint {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: #6a5a44;
+}
+
+/* Copyright page */
+.copyright-page {
+  page-break-before: always;
+  break-before: page;
+  page: front-matter;
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: #3b3328;
+  padding-top: 5in;
+}
+.copyright-page p {
+  text-indent: 0;
+  text-align: left;
+  margin: 0 0 0.5em;
+}
+
+/* Epigraph */
+.epigraph-page {
+  page-break-before: right;
+  break-before: right;
+  page: front-matter;
+  text-align: center;
+  padding-top: 2.5in;
+}
+.epigraph-page blockquote {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 14pt;
+  line-height: 1.4;
+  color: #1f1a14;
+  margin: 0 0.3in;
+  border: none;
+}
+.epigraph-page cite {
+  display: block;
+  margin-top: 1em;
+  font-style: normal;
+  font-size: 9pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6a5a44;
+}
+
+/* Contents */
+.contents-page {
+  page-break-before: right;
+  break-before: right;
+  page: front-matter;
+}
+.contents-page h2 {
+  text-align: center;
+  font-size: 22pt;
+  font-style: italic;
+  margin: 0 0 0.6in;
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+.contents-page ol, .contents-page ul { list-style: none; padding: 0; margin: 0; }
+.contents-page li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25em 0;
+  font-size: 10.5pt;
+  border-bottom: 1px dotted #c9b89a;
+}
+.contents-page li.toc-part {
+  border-bottom: none;
+  margin-top: 1.2em;
+  padding: 0.2em 0;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 12pt;
+  color: #4a3a26;
+  letter-spacing: 0.02em;
+}
+.contents-page li.toc-sub {
+  padding-left: 1.2em;
+  font-size: 9.5pt;
+  color: #4a4030;
+  border-bottom: none;
+}
+.contents-page .toc-page-num {
+  font-variant-numeric: oldstyle-nums;
+  color: #4a3a26;
+  padding-left: 0.5em;
+}
+
+/* Foreword / Introduction */
+.front-essay {
+  page-break-before: right;
+  break-before: right;
+  page: front-matter;
+}
+.front-essay h2 {
+  text-align: center;
+  font-size: 22pt;
+  font-style: italic;
+  margin: 0 0 0.4in;
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+.front-essay .eyebrow {
+  text-align: center;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  margin: 0 0 1em;
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* ---------- Part-title pages (each Week opens here) ---------- */
+
+.part-title {
+  page-break-before: right;
+  break-before: right;
+  page: part-title;
+  text-align: center;
+  padding-top: 2in;
+  string-set: chapter-title attr(data-running);
+}
+.part-title .part-eyebrow {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 9pt;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  margin: 0 0 0.4in;
+}
+.part-title .part-numeral {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 60pt;
+  line-height: 1;
+  color: #c9a04a;
+  margin: 0 0 0.4in;
+  display: block;
+}
+.part-title h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 30pt;
+  margin: 0 0 0.5in;
+  color: #1f1a14;
+}
+.part-title .part-verse {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 12pt;
+  line-height: 1.45;
+  margin: 0 0.4in;
+  color: #4a3a26;
+}
+.part-title .part-verse-ref {
+  display: block;
+  margin-top: 0.6em;
+  font-style: normal;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a5a44;
+}
+
+/* ---------- Chapter content (week essays) ---------- */
+
+.chapter {
+  page-break-before: right;
+  break-before: right;
+  string-set: chapter-title attr(data-running);
+}
+.chapter > h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 22pt;
+  text-align: center;
+  margin: 0.4in 0 0.1in;
+}
+.chapter > h1 + .chapter-eyebrow {
+  text-align: center;
+  font-size: 8.5pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  margin: 0 0 0.4in;
+}
+
+/* Drop-cap on first paragraph of a chapter section */
+.chapter > p.lead::first-letter,
+.chapter-essay > p.lead::first-letter {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.9;
+  padding: 0.05em 0.08em 0 0;
+  color: #c9a04a;
+}
+p.lead { text-indent: 0; }
+
+/* ---------- Boxed elements ---------- */
+
+.prep-box {
+  background: #f5ecdc;
+  border-left: 3px solid #c9a04a;
+  padding: 0.18in 0.22in;
+  margin: 0.3in 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.prep-box h3 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 12pt;
+  margin: 0 0 0.4em;
+  color: #1f1a14;
+}
+.prep-box p { text-indent: 0; margin: 0 0 0.5em; }
+.prep-box p:last-child { margin: 0; }
+
+.pullquote {
+  margin: 0.3in 0.3in;
+  padding: 0.18in 0;
+  border-top: 1px solid #c9a04a;
+  border-bottom: 1px solid #c9a04a;
+  text-align: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.pullquote blockquote {
+  margin: 0;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 13pt;
+  line-height: 1.4;
+  color: #1f1a14;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6em;
+  font-style: normal;
+  font-size: 8.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* ---------- Study guide ---------- */
+
+.study-guide {
+  page-break-before: right;
+  break-before: right;
+}
+.study-guide-header {
+  text-align: center;
+  margin-bottom: 0.4in;
+}
+.study-guide-header h2 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 22pt;
+  text-align: center;
+  margin: 0.3in 0 0.1in;
+}
+.study-guide-header .lede {
+  font-size: 10pt;
+  text-align: center;
+  color: #4a3a26;
+  margin: 0 0.3in;
+  font-style: italic;
+  text-indent: 0;
+}
+
+.study-session {
+  page-break-before: always;
+  break-before: page;
+  padding-top: 0.2in;
+}
+.session-meta {
+  text-indent: 0;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6a5a44;
+  margin: 0 0 0.3em;
+}
+.session-time {
+  margin-left: 0.4em;
+  letter-spacing: 0.12em;
+  color: #8a7a5e;
+}
+.session-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 17pt;
+  font-style: italic;
+  color: #1f1a14;
+  margin: 0 0 0.3em;
+}
+.session-aim {
+  font-style: italic;
+  color: #4a3a26;
+  font-size: 10pt;
+  margin: 0 0 0.3in;
+  text-indent: 0;
+}
+
+.session-block {
+  margin: 0.2in 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.session-block-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 12.5pt;
+  margin: 0.2in 0 0.1in;
+}
+
+/* Scripture list */
+.scripture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.1in 0 0.2in;
+  border-left: 2px solid #d8c79f;
+  padding-left: 0.18in;
+}
+.scripture-list li { margin: 0 0 0.18in; font-size: 9.5pt; line-height: 1.45; }
+.scripture-list .scripture-ref {
+  display: block;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: #1f1a14;
+  margin-bottom: 0.05em;
+}
+.scripture-list .scripture-desc {
+  display: block;
+  color: #3b3328;
+}
+
+/* Reflection box */
+.reflection-box {
+  background: #f5ecdc;
+  border-left: 2px solid #c9a04a;
+  padding: 0.16in 0.2in 0.16in 0.22in;
+  margin: 0.2in 0 0.1in;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.reflection-box h5 {
+  margin: 0 0 0.5em;
+}
+.reflection-box ol {
+  margin: 0;
+  padding-left: 1.1em;
+}
+.reflection-box ol li {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+.reflection-box em { font-style: italic; }
+
+.session-close {
+  font-style: italic;
+  color: #4a3a26;
+  font-size: 9.5pt;
+  margin: 0.3in 0 0;
+  text-indent: 0;
+  border-top: 1px solid #d8c79f;
+  padding-top: 0.15in;
+}
+
+/* ---------- Resource lists ---------- */
+
+.resource-cards {
+  margin: 0.2in 0;
+  display: block;
+}
+.resource-card {
+  border-left: 2px solid #c9a04a;
+  padding: 0.05in 0.18in;
+  margin: 0 0 0.18in;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.resource-card h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 12pt;
+  margin: 0 0 0.05in;
+  font-weight: 400;
+}
+.resource-card p {
+  margin: 0;
+  text-indent: 0;
+  font-size: 9.5pt;
+}
+
+ul.resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.2in 0;
+}
+ul.resources-list li {
+  margin: 0 0 0.6em;
+  font-size: 10pt;
+  line-height: 1.5;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+ul.resources-list li::before {
+  content: "—";
+  color: #c9a04a;
+  margin-right: 0.5em;
+}
+
+/* ---------- About / colophon ---------- */
+
+.colophon {
+  page-break-before: right;
+  break-before: right;
+  text-align: center;
+  padding-top: 1.5in;
+  font-size: 9.5pt;
+  line-height: 1.6;
+}
+.colophon h2 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 18pt;
+  margin: 0 0 0.4in;
+  text-align: center;
+}
+.colophon p { text-indent: 0; text-align: center; margin: 0 0 0.7em; }
+.colophon .ornament {
+  display: block;
+  margin: 0.4in auto;
+  width: 0.4in;
+  color: #c9a04a;
+}
+
+/* ---------- Print-only / screen-only helpers ---------- */
+
+@media screen {
+  body {
+    max-width: 5.5in;
+    padding: 0.7in 0.6in 0.8in 0.7in;
+    margin: 1rem auto;
+    box-shadow: 0 0 14px rgba(0,0,0,0.08);
+    background: #fffaf3;
+  }
+  .recto, .new-page, .part-title, .chapter, .study-session, .study-guide,
+  .colophon, .front-essay, .epigraph-page, .copyright-page,
+  .contents-page, .title-page, .half-title {
+    border-top: 1px dashed #d8c79f;
+    margin-top: 1.6in;
+    padding-top: 0.4in;
+  }
+  .blank-page { display: none; }
+}
+
+/* Avoid breaking immediately after these */
+.session-title, .session-meta, .session-aim,
+.session-block-title, .reflection-box h5,
+h1, h2, h3, h4 {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+.session-block, .reflection-box, .prep-box, .pullquote,
+.scripture-list, .resource-card {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
