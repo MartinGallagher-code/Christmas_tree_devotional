@@ -527,13 +527,6 @@ p.lead { text-indent: 0; }
      leave the Study Guide heading + lede stranded alone on a page. */
   margin-top: 0.35in;
 }
-/* The first session under a Study Guide must not break before its first
-   block, or the Study Guide header gets stranded alone on the page above. */
-.study-guide-header + .study-session {
-  margin-top: 0.25in;
-  page-break-before: avoid;
-  break-before: avoid;
-}
 .study-guide-header {
   text-align: center;
   margin-bottom: 0.4in;
@@ -563,8 +556,8 @@ p.lead { text-indent: 0; }
 }
 
 .study-session {
-  /* Each session is visually separated by spacing, not a forced break. */
-  margin-top: 0.55in;
+  page-break-before: always;
+  break-before: page;
   padding-top: 0.1in;
 }
 .session-meta {
