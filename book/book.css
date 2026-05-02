@@ -422,10 +422,8 @@ h5 {
 .chapter-essay > p.lead::first-letter {
   font-family: 'Instrument Serif', Georgia, serif;
   font-style: italic;
-  float: left;
-  font-size: 3.4em;
-  line-height: 0.9;
-  padding: 0.05em 0.08em 0 0;
+  font-size: 2.4em;
+  line-height: 1;
   color: #c9a04a;
 }
 p.lead { text-indent: 0; }
