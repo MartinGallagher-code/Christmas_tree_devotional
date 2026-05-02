@@ -734,7 +734,7 @@ ul.resources-list li::before {
   display: block;
   margin: 0.4in auto;
   width: 0.4in;
-  color: #c9a04a;
+  height: 0.4in;
 }
 
 /* ---------- Print-only / screen-only helpers ---------- */
