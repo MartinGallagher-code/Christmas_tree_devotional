@@ -626,6 +626,8 @@ p.lead { text-indent: 0; }
   font-size: 11pt;
   color: #1f1a14;
   margin-bottom: 0.05em;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 .scripture-list .scripture-desc {
   display: block;
@@ -634,6 +636,8 @@ p.lead { text-indent: 0; }
   color: #6a5a44;
   line-height: 1.4;
   margin-bottom: 0.06in;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 .scripture-list .scripture-text {
   display: block;
