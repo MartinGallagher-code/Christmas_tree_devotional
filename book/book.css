@@ -763,6 +763,7 @@ ul.resources-list li::before {
   text-align: center;
 }
 .colophon p { text-indent: 0; text-align: center; margin: 0 0 0.7em; }
+.colophon strong { white-space: nowrap; hyphens: none; }
 .colophon .ornament {
   display: block;
   margin: 0.4in auto;
