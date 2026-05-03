@@ -631,6 +631,29 @@ p.lead { text-indent: 0; }
   display: block;
   color: #3b3328;
 }
+.scripture-list .scripture-text {
+  display: block;
+  margin: 0.08in 0 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: #2b2b2b;
+  text-align: justify;
+  hyphens: auto;
+  text-indent: 0;
+}
+.scripture-list .scripture-text .verse-num {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: #c9a04a;
+  vertical-align: 0.25em;
+  margin-right: 0.15em;
+  letter-spacing: 0;
+}
+.scripture-list li {
+  page-break-inside: auto;
+  break-inside: auto;
+}
 
 /* Reflection box */
 .reflection-box {
@@ -765,7 +788,7 @@ h1, h2, h3, h4 {
   break-after: avoid;
 }
 .reflection-box, .prep-box, .pullquote,
-.scripture-list, .resource-card {
+.resource-card {
   page-break-inside: avoid;
   break-inside: avoid;
 }
