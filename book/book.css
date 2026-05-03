@@ -629,11 +629,17 @@ p.lead { text-indent: 0; }
 }
 .scripture-list .scripture-desc {
   display: block;
-  color: #3b3328;
+  font-style: italic;
+  font-size: 9pt;
+  color: #6a5a44;
+  line-height: 1.4;
+  margin-bottom: 0.06in;
 }
 .scripture-list .scripture-text {
   display: block;
-  margin: 0.08in 0 0;
+  margin: 0.06in 0 0;
+  padding-top: 0.06in;
+  border-top: 1px solid #e6d8b8;
   font-size: 9.5pt;
   line-height: 1.5;
   color: #2b2b2b;
