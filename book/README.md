@@ -10,6 +10,7 @@ paperback book for self-publication through [Lulu.com](https://www.lulu.com).
 | `book.html` | The full book as a single self-contained HTML document. Open it in any browser to preview. |
 | `book.css` | Print stylesheet — defines the trim size, margins, running heads, page numbers, and section breaks. |
 | `build.sh` | Converts `book.html` to a print-ready PDF using WeasyPrint, Prince, or headless Chromium. |
+| `EDITING.md` | How to edit the book's text without breaking the layout. **Read this first if you only want to change the words.** |
 | `README.md` | This file. |
 
 ## Trim size
@@ -103,6 +104,10 @@ and choose **File → Print → Save as PDF**. In the print dialog:
 
 ## Editing the book
 
+**If you only want to change the words**, see [`EDITING.md`](EDITING.md) —
+it explains the edit-zone markers in `book.html` and exactly what is safe
+to change without affecting the printed page layout.
+
 The book is a single HTML file with comment-delimited sections:
 
 ```
@@ -115,10 +120,15 @@ The book is a single HTML file with comment-delimited sections:
 <!-- BACK MATTER — RESOURCES & ABOUT -->
 ```
 
-To edit text, open `book.html` and find the relevant section. The book is
-intentionally not generated from the website HTML files — it is a standalone,
-print-tuned copy so that you can adjust pacing, line breaks, and language
-specifically for the printed page without affecting the website.
+Within each section, every prose region is wrapped in `<!-- === EDIT TEXT
+BELOW === -->` / `<!-- === END EDIT TEXT === -->` markers. Anything
+between those two comments is safe to retext; anything outside controls
+the printed-page layout.
+
+The book is intentionally not generated from the website HTML files — it
+is a standalone, print-tuned copy so that you can adjust pacing, line
+breaks, and language specifically for the printed page without affecting
+the website.
 
 To change the typography or layout, edit `book.css`.
 
