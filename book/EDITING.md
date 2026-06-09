@@ -1,5 +1,9 @@
 # Editing the Book — Text-Only Guide
 
+> **Prefer Word?** The easiest way to change the words is to edit the book as a
+> Word document — see [`EDITING-WORD.md`](EDITING-WORD.md). The guide below is
+> for editing `book.html` directly.
+
 The book is one HTML file (`book.html`). You don't need to know HTML to edit
 the words in it — every prose section is wrapped in clearly marked **edit
 zones** so you can tell at a glance which parts of the file are safe to
